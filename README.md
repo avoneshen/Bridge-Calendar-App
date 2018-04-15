@@ -58,5 +58,5 @@ This project is licensed under the MIT Licence - seet the LICENCE file for detai
 ## Acknowledgements
 
 * This would have been impossible without the awesome Tower Bridge Lifts repo by aaparmeggiani - check it out here: https://github.com/aaparmeggiani/tower-bridge-lifts
-* This depends on Google Calendar, available via a modified version of the Google Node API - [available here] (https://github.com/google/google-api-nodejs-client/#google-apis-nodejs-client).
+* This depends on Google Calendar, available via a modified version of the Google Node API - available here: https://github.com/google/google-api-nodejs-client/#google-apis-nodejs-client
 * This readme was created from this sample: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
