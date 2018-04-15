@@ -30,6 +30,8 @@ Set these up as follows - check the format in app.js:
 $heroku config:set BRIDGE_CALENDAR_ID=12345 CLIENT_EMAIL=67890 GC_PRIVATE_KEY=12345 MONGO_USER=joe: MONGO_PW=password123 MONGO_URL_SUFFIX=@blogs.mlab.com
 ```
 
+If using Heroku you will require the Node.js and Ruby buildpacks.
+
 I use the Heroku Scheduler to execute. Refer to executeApp.js for the process I schedule. If using Heroku, you can test with:
 
 ```
@@ -56,5 +58,5 @@ This project is licensed under the MIT Licence - seet the LICENCE file for detai
 ## Acknowledgements
 
 * This would have been impossible without the awesome Tower Bridge Lifts repo by aaparmeggiani - check it out here: https://github.com/aaparmeggiani/tower-bridge-lifts
-* This depends on Google Calendar, available via a modified version of the Google Node API - available here: 
+* This depends on Google Calendar, available via a modified version of the Google Node API - [available here] (https://github.com/google/google-api-nodejs-client/#google-apis-nodejs-client).
 * This readme was created from this sample: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
