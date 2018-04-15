@@ -1,6 +1,6 @@
 {
   "name": "bridgecaldev",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tower Bridge Calendar push program",
   "main": "index.js",
   "scripts": {
