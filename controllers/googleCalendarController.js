@@ -324,7 +324,6 @@ async function deleteRecords(recordsToDelete) {
 
 // Gcal Object Constructor - matching the records in my calendar
 // Can be returned to bridge calendar controller for use in the update function
-// Opening time uses moment.format for local time
 // ID, Name, Start Date
 function GcalEntry(openTime, closeTime, eventSummary, eventDescription, eventGid) {
   this.openingTime = openTime;
@@ -349,16 +348,17 @@ function ListRequest(authorisation, calId, maxRecords) {
 
 // @param: calEntry: { object }
 //    calEntry.openingTime: dateTime: dateTime ISO string
+// Opening time uses moment.format for local time
 //    calEntry.closingTime: dateTime ISO string
 //    calEntry.summary: string
 //    calEntry.description: string
 //    calEntry.gid: string
 function CalendarResource(calEntry) {
   this.start = {
-    dateTime: calEntry.openingTime.format(),
+    dateTime: moment(calEntry.openingTime).format(),
   };
   this.end = {
-    dateTime: calEntry.closingTime.format(),
+    dateTime: moment(calEntry.closingTime).format(),
   };
   this.summary = calEntry.summary;
   this.description = calEntry.description;
