@@ -3,12 +3,19 @@
 
 var liftParser = {};
 const moment = require('moment');
+// Sets the OS - determines which newline to use!
+const os = 'unix';
 
 // parse results to string array
 var parseLifts = function(input) {
   // Newline windows: \r\n
   // Newline linux: 
-  let newline = '\r\n';
+  let newline;
+  if (os === 'unix') {
+    newline = '\n';
+  } else if (os === 'dos') {
+    newline = '\r\n';
+  }
   let lifts = input;
   let listToReturn = splitString(lifts, newline);
   return listToReturn;
@@ -20,10 +27,8 @@ function splitString(input, separator) {
   // input.split fails if an undefined type comes through...
   if (input && !(input === 'undefined')) {
     let stringInput = input.toString();
-    console.log("Output raw: " + stringInput);
     output = stringInput.split(separator);
   }
-  console.log("Output length is: " + output.length);
   return output;
 };
 

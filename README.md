@@ -53,7 +53,7 @@ Note that the integration tests will require you to have set up the credentials 
 * **Andrew Voneshen** - *Initial Work* - [Andrew Voneshen](https://github.com/avoneshen)
 
 ## License
-This project is licensed under the MIT Licence - seet the LICENCE file for details.
+This project is licensed under the MIT Licence - see the LICENCE file for details.
 
 ## Acknowledgements
 
