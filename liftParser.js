@@ -63,7 +63,6 @@ var parseDateTimeStringsReturnDate = function(date, time) {
   try {
     let dateTime = date + ' ' + time + ':00';
     myDate = moment(dateTime, 'DD-MMM-YY HH:mm:ss');
-    console.log(myDate);
   } catch (error) {
     console.log('Error with input: ' + error);
     console.log('The line will be rejected');
