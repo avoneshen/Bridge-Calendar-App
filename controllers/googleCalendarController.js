@@ -142,9 +142,9 @@ function returnAllListEntryObjects(input) {
     for (var i = 0; i < events.length; i++) {
       let event = events[i];
       let start = event.start.dateTime;
-      start = moment(start).toISOString().format();
+      start = moment(start).toISOString();
       let end = event.end.dateTime;
-      end = moment(end).toISOString().format();
+      end = moment(end).toISOString();
       let summary = event.summary;
       let description = event.description;
       let gid = event.id;
@@ -324,6 +324,7 @@ async function deleteRecords(recordsToDelete) {
 
 // Gcal Object Constructor - matching the records in my calendar
 // Can be returned to bridge calendar controller for use in the update function
+// Opening time uses moment.format for local time
 // ID, Name, Start Date
 function GcalEntry(openTime, closeTime, eventSummary, eventDescription, eventGid) {
   this.openingTime = openTime;
@@ -341,7 +342,7 @@ function ListRequest(authorisation, calId, maxRecords) {
   this.auth = authorisation;
   this.calendarId = calId;
   this.maxResults = maxRecords;
-  this.timeMin = (new Date()).toISOString().format();
+  this.timeMin = (new Date()).toISOString();
   this.singleEvents = true;
   this.orderBy = 'startTime';
 }
@@ -354,10 +355,10 @@ function ListRequest(authorisation, calId, maxRecords) {
 //    calEntry.gid: string
 function CalendarResource(calEntry) {
   this.start = {
-    dateTime: calEntry.openingTime,
+    dateTime: calEntry.openingTime.format(),
   };
   this.end = {
-    dateTime: calEntry.closingTime,
+    dateTime: calEntry.closingTime.format(),
   };
   this.summary = calEntry.summary;
   this.description = calEntry.description;
