@@ -3,7 +3,7 @@
 
 var liftParser = {};
 var moment = require('moment-timezone');
-moment.tz.setDefault('Europe / London');
+moment.tz.setDefault('Europe/London');
 // Sets the OS - determines which newline to use!
 const os = 'unix';
 
