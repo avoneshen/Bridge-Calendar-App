@@ -2,6 +2,7 @@
 'use strict';
 
 var moment = require('moment');
+moment.tz.setDefault('Europe / London');
 var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
