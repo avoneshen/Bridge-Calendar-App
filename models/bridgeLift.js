@@ -1,7 +1,7 @@
 
 'use strict';
 
-var moment = require('moment');
+var moment = require('moment-timezone');
 moment.tz.setDefault('Europe / London');
 var mongoose = require('mongoose');
 

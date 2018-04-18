@@ -18,7 +18,7 @@
 var fs = require('fs');
 const util = require('util');
 var { google } = require('googleapis');
-let moment = require('moment');
+let moment = require('moment-timezone');
 moment.tz.setDefault('Europe / London');
 var calendar = google.calendar('v3');
 const list = util.promisify(calendar.events.list);
