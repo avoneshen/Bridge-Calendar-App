@@ -58,7 +58,7 @@ var objectifyArray = function(listToObjectify) {
   return objectifiedList;
 };
 
-var parseDateTimeStringsReturnIsoDate = function(date, time) {
+var parseDateTimeStringsReturnDate = function(date, time) {
   let myDate;
   try {
     let dateTime = date + ' ' + time + ':00';
@@ -69,7 +69,7 @@ var parseDateTimeStringsReturnIsoDate = function(date, time) {
     myDate = false;
   }
   if (myDate && !(myDate === 'undefined' || String(myDate) === 'Invalid date')) {
-    return myDate.toISOString();
+    return myDate;
   } else {
     return '';
   }
@@ -83,7 +83,7 @@ var objectifyCalendarInput = function(inputEntry) {
   let returnLift;
   try {
     let splitInput = splitString(inputEntry, ' ');
-    openingDateTime = parseDateTimeStringsReturnIsoDate(splitInput[0], splitInput[2]);
+    openingDateTime = parseDateTimeStringsReturnDate(splitInput[0], splitInput[2]);
     if (splitInput.length > 4) {
       for (let i = 4; i < splitInput.length; i++) {
         vesselName += splitInput[i];
@@ -111,7 +111,7 @@ var unloadableRecords = function(count) {
 
 liftParser.parseLifts = parseLifts;
 liftParser.objectifyArray = objectifyArray;
-liftParser.parseDateTimeStringsReturnIsoDate = parseDateTimeStringsReturnIsoDate;
+liftParser.parseDateTimeStringsReturnDate = parseDateTimeStringsReturnDate;
 liftParser.objectifyCalendarInput = objectifyCalendarInput;
 
 module.exports = liftParser;

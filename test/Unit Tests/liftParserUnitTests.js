@@ -95,19 +95,19 @@ describe('Date parsing in liftParser should run correctly.', function() {
     const testDateInput = '29-Oct-18';
     const testTimeInput = '18:00';
 
-    const date = liftParser.parseDateTimeStringsReturnIsoDate(testDateInput, testTimeInput);
+    const date = liftParser.parseDateTimeStringsReturnDate(testDateInput, testTimeInput);
 
     date.should.be.a('string').that.equals('2018-10-29T18:00:00.000Z');
   });
 
   it('Should fail safe when passed undefined input', function() {
-    const date = liftParser.parseDateTimeStringsReturnIsoDate(undefined, undefined);
+    const date = liftParser.parseDateTimeStringsReturnDate(undefined, undefined);
 
     date.should.be.a('string').that.equals('');
   });
 
   it('Should fail safe when passed non date-times input', function() {
-    const date = liftParser.parseDateTimeStringsReturnIsoDate(false, false);
+    const date = liftParser.parseDateTimeStringsReturnDate(false, false);
 
     date.should.be.a('string').that.equals('');
   });
