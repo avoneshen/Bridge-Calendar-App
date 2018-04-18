@@ -2,7 +2,7 @@
 'use strict';
 
 var liftParser = {};
-let moment = require('moment');
+var moment = require('moment');
 moment.tz.setDefault('Europe / London');
 // Sets the OS - determines which newline to use!
 const os = 'unix';
