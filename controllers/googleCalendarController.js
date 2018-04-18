@@ -142,9 +142,9 @@ function returnAllListEntryObjects(input) {
     for (var i = 0; i < events.length; i++) {
       let event = events[i];
       let start = event.start.dateTime;
-      start = moment(start).toISOString();
+      start = moment(start).toISOString().format();
       let end = event.end.dateTime;
-      end = moment(end).toISOString();
+      end = moment(end).toISOString().format();
       let summary = event.summary;
       let description = event.description;
       let gid = event.id;
@@ -341,7 +341,7 @@ function ListRequest(authorisation, calId, maxRecords) {
   this.auth = authorisation;
   this.calendarId = calId;
   this.maxResults = maxRecords;
-  this.timeMin = (new Date()).toISOString();
+  this.timeMin = (new Date()).toISOString().format();
   this.singleEvents = true;
   this.orderBy = 'startTime';
 }

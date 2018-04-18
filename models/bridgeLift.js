@@ -29,7 +29,7 @@ BridgeLiftSchema.virtual('description')
 BridgeLiftSchema.virtual('openingTimeIso')
   .get(function() {
     let open = this.openingTime;
-    let openTime = open.toISOString();
+    let openTime = open.toISOString().format();
     return openTime;
   });
 
@@ -44,7 +44,7 @@ BridgeLiftSchema.virtual('closingTimeIso')
   .get(function() {
     let openPlusFifteenMinutes = moment(this.openingTime);
     openPlusFifteenMinutes.add(15, 'minutes');
-    let closingTime = openPlusFifteenMinutes.toISOString();
+    let closingTime = openPlusFifteenMinutes.toISOString().format();
     return closingTime;
   });
 

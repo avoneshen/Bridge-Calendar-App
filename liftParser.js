@@ -69,7 +69,7 @@ var parseDateTimeStringsReturnIsoDate = function(date, time) {
     myDate = false;
   }
   if (myDate && !(myDate === 'undefined' || String(myDate) === 'Invalid date')) {
-    return myDate.toISOString();
+    return myDate.toISOString().format();
   } else {
     return '';
   }
