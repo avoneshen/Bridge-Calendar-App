@@ -10,7 +10,7 @@ const os = 'unix';
 // parse results to string array
 var parseLifts = function(input) {
   // Newline windows: \r\n
-  // Newline linux: 
+  // Newline linux: \n
   let newline;
   if (os === 'unix') {
     newline = '\n';

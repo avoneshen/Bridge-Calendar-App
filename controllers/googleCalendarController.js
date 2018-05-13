@@ -15,7 +15,6 @@
 
 'use strict';
 
-var fs = require('fs');
 const util = require('util');
 var { google } = require('googleapis');
 let moment = require('moment-timezone');
@@ -31,8 +30,8 @@ const bridgeLiftController = require('../controllers/bridgeLiftController');
 
 // process.env - Heroku specific environment variables.
 var key = {
-    client_email: process.env.CLIENT_EMAIL,
-    private_key: process.env.GC_PRIVATE_KEY.replace(/\\n/g, '\n')
+  client_email: process.env.CLIENT_EMAIL,
+  private_key: process.env.GC_PRIVATE_KEY.replace(/\\n/g, '\n'),
 };
 
 var bridgeCalendarId = process.env.BRIDGE_CALENDAR_ID;
