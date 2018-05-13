@@ -8,6 +8,8 @@ I host this on Heroku. See below for a sample installation.
 
 I use MongoDB for the database, and you will also need to configure a service account for Google Calendar. [Node JS Quickstart](https://developers.google.com/calendar/quickstart/nodejs).
 
+You should also ensure that you add your service account email to your calendar permissions.
+
 ### Installing
 
 The module requires the [Tower Bridge Lifts CLI application](https://github.com/aaparmeggiani/tower-bridge-lifts) by aaparmeggiani. Run the following to install:
