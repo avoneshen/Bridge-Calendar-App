@@ -51,7 +51,7 @@ exports.bridgeLift_upsertCollection = async function(array) {
 // Populates the GID field of existing records.
 exports.bridgeLift_updateCollection = async function(array) {
   for (const lift of array) {
-    console.log('Updating GID of: ' + lift.summary + ', scheduled for: ' + lift.openingTime);
+    console.log('Updating GID of: ' + lift.summary + ', scheduled for: ' + lift.openingTime + ", with gid: " + lift.gid);
     let dateObject = {
       gid: lift.gid,
     };

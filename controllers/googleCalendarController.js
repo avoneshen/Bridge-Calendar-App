@@ -68,11 +68,16 @@ async function returnAuthClient() {
 
 const processGoogleCalendarRecords = async function() {
   try {
+    // authorise
     authClient = await returnAuthClient();
+    // fetch data
     let liftData = await returnDatabaseRecords();
     let calData = await returnDatabaseObjects();
+    // get deletes
     let recordsToDelete = controllerDataLibrary.EvalAndReturnSingletonRecords(calData, liftData);
+    // handle deletes
     await processRecordsToDelete(recordsToDelete);
+    // 
     const evaluatedRecordList = evaluateRecords(liftData, calData);
     await processRecordsToUpsert(evaluatedRecordList);
     return 'Calendar sync complete';
@@ -252,7 +257,7 @@ async function processRecordsToUpsert(evaluatedRecordList) {
   }
 }
 
-// @Param: returnRecords - individual input of processRecordsToUpsert:
+// @Param: recordsToInsert - individual input of processRecordsToUpsert:
 //    dbRecord.openingTime: dateTime: dateTime ISO string
 //    dbRecord.closingTime: dateTime: dateTime ISO string
 //    dbRecord.summary: string
