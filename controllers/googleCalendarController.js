@@ -71,13 +71,14 @@ const processGoogleCalendarRecords = async function() {
     // authorise
     authClient = await returnAuthClient();
     // fetch data
+    // Records from the DB
     let liftData = await returnDatabaseRecords();
+    // Records from Google Calendar
     let calData = await returnDatabaseObjects();
     // get deletes
     let recordsToDelete = controllerDataLibrary.EvalAndReturnSingletonRecords(calData, liftData);
     // handle deletes
     await processRecordsToDelete(recordsToDelete);
-    // 
     const evaluatedRecordList = evaluateRecords(liftData, calData);
     await processRecordsToUpsert(evaluatedRecordList);
     return 'Calendar sync complete';

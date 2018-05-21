@@ -8,11 +8,11 @@ var controllerDataLibrary = require('../controllers/controllerDataLibrary');
 exports.processRecords = async function(input) {
   console.log('Processing Records...');
   try {
-    let databaseLifts = exports.bridgeLift_selectFutureData();
-    let recordsToPurge = controllerDataLibrary.EvalAndReturnSingletonRecords(databaseLifts, input);
+    let databaseLifts = await exports.bridgeLift_selectFutureData();
+    let recordsToPurge = await controllerDataLibrary.EvalAndReturnSingletonRecords(databaseLifts, input);
     if (recordsToPurge.length > 0) {
       console.log('Records Found. Purge Process Beginning...');
-      exports.bridgeLift_deleteCollection(recordsToPurge);
+      await exports.bridgeLift_deleteCollection(recordsToPurge);
     } else {
       console.log('No Records to Purge. Beginning Update...');
     }
@@ -31,7 +31,6 @@ exports.bridgeLift_upsertCollection = async function(array) {
     let dateObject = {
       name: lift.name,
       openingTime: lift.openingTime,
-      gid: lift.gid,
     };
     let queryObject = {
       openingTime: lift.openingTime,
@@ -50,20 +49,22 @@ exports.bridgeLift_upsertCollection = async function(array) {
 
 // Populates the GID field of existing records.
 exports.bridgeLift_updateCollection = async function(array) {
-  for (const lift of array) {
-    console.log('Updating GID of: ' + lift.summary + ', scheduled for: ' + lift.openingTime + ", with gid: " + lift.gid);
-    let dateObject = {
-      gid: lift.gid,
-    };
-    let queryObject = {
-      openingTime: lift.openingTime,
-    };
-    let updateLift = BridgeLift.findOneAndUpdate(queryObject, dateObject);
-    try {
-      await updateLift.exec();
-    } catch (error) {
-      console.log('Error when processing lift time: ' + lift.openingTime + ', Error: ' + error);
-    }
+    for (const lift of array) {
+      if (lift.gid) {
+        console.log('Updating GID of: ' + lift.summary + ', scheduled for: ' + lift.openingTime + ", with gid: " + lift.gid);
+        let dateObject = {
+            gid: lift.gid,
+        };
+        let queryObject = {
+            openingTime: lift.openingTime,
+        };
+        let updateLift = BridgeLift.findOneAndUpdate(queryObject, dateObject);
+        try {
+            await updateLift.exec();
+        } catch (error) {
+            console.log('Error when processing lift time: ' + lift.openingTime + ', Error: ' + error);
+        }
+      }
   }
 };
 
