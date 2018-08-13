@@ -1,6 +1,29 @@
 # Bridge Lift Calendar
 
-I recently started a daily commute across Tower Bridge, and I wanted to have a full list of lifts on my calendar rather than having to cross reference times with the web page. This is a little Node.js app that synchs a database (mongoDB) of bridge opening times with MongoDB. 
+Travelling across Tower Bridge daily, and getting caught out by it's opening times more than I care to admit, I thought it would be cool to have a list of lifts on my calendar rather than having to cross reference meetings with the [official web page](http://www.towerbridge.org.uk/lift-times/). This is a little Node.js app for that, by synching a database of bridge opening times with Google Calendar. 
+
+## Instructions for Calendar Users
+
+This is an open source project, and you're welcome to use it for your own implementation. If you just want the calendar, you're welcome to subscribe to mine. 
+
+Here’s the iCal link for that: 
+```
+https://calendar.google.com/calendar/ical/v7e1aukb21boup91kmiend0em4%40group.calendar.google.com/public/basic.ics
+```
+
+And if you need it, here's the calendar URL:
+```
+https://calendar.google.com/calendar/embed?src=v7e1aukb21boup91kmiend0em4%40group.calendar.google.com&ctz=Europe%2FLondon
+```
+
+### Outlook Install
+To add to an Outlook Calendar, go into Outlooks Calendar / Home / Open calendar / From internet… - put the above link in there, and when prompted, say you’ll subscribe to it.
+
+### Help / Issues
+
+If you want to raise an issue, or request help, please do that [here](https://github.com/avoneshen/Bridge-Calendar-App/issues).
+
+Please raise an issue here if you need any help integrating the iCal solution with other calendars or clients. I'll be happy to help you out.
 
 ## Getting Started
 
